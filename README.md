@@ -61,11 +61,20 @@ Para inicializar o projeto com Docker e carregar os dados iniciais, siga os pass
 5. **Aguarde até que o contêiner esteja em execução.**
    - Uma vez que esteja pronto, os dados serão carregados automaticamente através dos seeders.
 
-6. **Após a inicialização, você pode acessar a API em [http://localhost:3000](http://localhost:3000).**
+6. **Após a inicialização, você pode acessar a API local em [http://localhost:3000](http://localhost:3000).**
+   - **Documentação Swagger:** [http://localhost:3000/holiday#/](http://localhost:3000/holiday#/)
+
+### Teste da API
+
+Você pode testar a API localmente usando o URL fornecido acima. Além disso, você também pode acessar a API em produção usando o link abaixo:
+
+- **API em Produção:** [https://sua-api.com](https://sua-api.com)
+
+Se preferir, podemos disponibilizar uma instância pública da API para você rodar e testar. Por favor, nos avise se precisar de mais informações ou assistência para testar a API.
 
 ## Erro no Teste Corrigido
 
-Durante o desenvolvimento, identificamos e corrigimos um erro no teste onde o feriado "corpus-christ" era cadastrado, mas esperava-se receber "Corpus Christi".
+Durante o desenvolvimento, foi identificado e corrigido um erro no teste onde o feriado "corpus-christ" era cadastrado, mas esperava-se receber "Corpus Christi".
 
 ## Exemplo de Cadastro
 

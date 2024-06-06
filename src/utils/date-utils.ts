@@ -3,7 +3,7 @@ import { isWeekend } from 'date-fns';
 
 export function checkWeekend(date: string) {
     if (isWeekend(new Date(date))) {
-        throw new BadRequestException('Feriados só podem ser criados ou atualizados para dias úteis.');
+        throw new BadRequestException('Holidays can only be created or updated for business days.');
     }
 }
 
