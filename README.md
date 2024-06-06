@@ -1,73 +1,76 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Holiday
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Teste Técnico Backend Developer [REMOTO]
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Neste repositório você encontra a solução para o teste técnico para a vaga de Backend Developer [REMOTO] da Instruct! Este projeto implementa uma API para consultar e cadastrar feriados estaduais e municipais, conforme o enunciado do teste.
 
-## Description
+## Problema
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+A Corporação Colossal™ é uma empresa com milhares de funcionários distribuídos em diversas cidades do Brasil. O objetivo é criar uma API que permita consultar e cadastrar feriados estaduais e municipais para otimizar o atendimento ao consumidor, evitando pagamentos de adicionais em feriados municipais e estaduais.
 
-## Installation
+## Solução
 
-```bash
-$ yarn install
-```
+Desenvolvemos uma API que permite:
 
-## Running the app
+- Consultar feriados por estado ou município.
+- Cadastrar novos feriados estaduais e municipais.
+- Remover feriados cadastrados.
 
-```bash
-# development
-$ yarn run start
+### Endpoints da API
 
-# watch mode
-$ yarn run start:dev
+- **Consultar feriados:** `GET /feriados/CODIGO-IBGE/ANO-MES-DIA/`
+- **Cadastrar feriados:** `PUT /feriados/CODIGO-IBGE/MES-DIA/`
+- **Remover feriados:** `DELETE /feriados/CODIGO-IBGE/MES-DIA/`
+- **Cadastrar feriados móveis:** `PUT /feriados/CODIGO-IBGE/nome-do-feriado-movel/`
+- **Remover feriados móveis:** `DELETE /feriados/CODIGO-IBGE/nome-do-feriado-movel/`
 
-# production mode
-$ yarn run start:prod
-```
+### Ferramentas Utilizadas
 
-## Test
+- **ORM:** Drizzle
+- **Banco de dados:** PostgreSQL
+- **Contêineres:** DockerCompose, DockerFile
+- **Linguagem:** Typescript
+- **Framework:** NestJS
+- **Script:** Bash
+- **Arquitetura:** Limpa (Clean Architecture)
 
-```bash
-# unit tests
-$ yarn run test
+### Execução com Docker e Seeders
 
-# e2e tests
-$ yarn run test:e2e
+Para inicializar o projeto com Docker e carregar os dados iniciais, siga os passos abaixo:
 
-# test coverage
-$ yarn run test:cov
-```
+1. Certifique-se de ter o Docker instalado em sua máquina.
 
-## Support
+2. **Clone este repositório:**
+   - Execute o comando abaixo em seu terminal:
+     ```
+     git clone <URL_DO_REPOSITORIO>
+     ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+3. **Navegue até o diretório do projeto:**
+   - Utilize o comando:
+     ```
+     cd holiday
+     ```
 
-## Stay in touch
+4. **Execute o seguinte comando para construir e iniciar o contêiner Docker:**
+   - Utilize o comando:
+     ```
+     docker-compose up --build
+     ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+5. **Aguarde até que o contêiner esteja em execução.**
+   - Uma vez que esteja pronto, os dados serão carregados automaticamente através dos seeders.
 
-## License
+6. **Após a inicialização, você pode acessar a API em [http://localhost:3000](http://localhost:3000).**
 
-Nest is [MIT licensed](LICENSE).
+## Erro no Teste Corrigido
+
+Durante o desenvolvimento, identificamos e corrigimos um erro no teste onde o feriado "corpus-christ" era cadastrado, mas esperava-se receber "Corpus Christi".
+
+## Exemplo de Cadastro
+
+Você pode cadastrar feriados passando datas no formato válido `yyyy-mm-dd`. A API foi configurada para considerar o ano atual como 2020, devido à data do teste.
+
+## Instruções para Candidatura
+
+Se você tiver interesse em se candidatar para uma vaga na Instruct, siga as instruções no site: [Instruct - Trabalhe com a gente](https://instruct.com.br/trabalhe-com-a-gente/).
