@@ -34,6 +34,10 @@ Desenvolvemos uma API que permite:
 - **Script:** Bash
 - **Arquitetura:** Limpa (Clean Architecture)
 
+### Deploy na AWS com Nginx e Certbot
+
+Este projeto foi implantado na AWS usando uma instância t3.micro. O servidor web Nginx foi configurado como um proxy reverso para a API, e o certificado SSL foi gerado automaticamente usando o Certbot.
+
 ### Execução com Docker e Seeders
 
 Para inicializar o projeto com Docker e carregar os dados iniciais, siga os passos abaixo:
@@ -61,25 +65,19 @@ Para inicializar o projeto com Docker e carregar os dados iniciais, siga os pass
 5. **Aguarde até que o contêiner esteja em execução.**
    - Uma vez que esteja pronto, os dados serão carregados automaticamente através dos seeders.
 
-6. **Após a inicialização, você pode acessar a API local em [http://localhost:3000](http://localhost:3000).**
+6. **Após a inicialização, você pode acessar a API local em [http://localhost](http://localhost).**
    - **Documentação Swagger:** [http://localhost:3000/holiday#/](http://localhost:3000/holiday#/)
 
 ### Teste da API
 
 Você pode testar a API localmente usando o URL fornecido acima. Além disso, você também pode acessar a API em produção usando o link abaixo:
 
-- **API em Produção:** [https://sua-api.com](https://sua-api.com)
+- **API em Produção:** [https://holiday.3utilities.com/](https://holiday.3utilities.com/)
 
 Se preferir, podemos disponibilizar uma instância pública da API para você rodar e testar. Por favor, nos avise se precisar de mais informações ou assistência para testar a API.
 
-## Erro no Teste Corrigido
+Para testar a aplicação, execute o seguinte comando:
 
-Durante o desenvolvimento, foi identificado e corrigido um erro no teste onde o feriado "corpus-christ" era cadastrado, mas esperava-se receber "Corpus Christi".
-
-## Exemplo de Cadastro
-
-Você pode cadastrar feriados passando datas no formato válido `yyyy-mm-dd`. A API foi configurada para considerar o ano atual como 2020, devido à data do teste.
-
-## Instruções para Candidatura
-
-Se você tiver interesse em se candidatar para uma vaga na Instruct, siga as instruções no site: [Instruct - Trabalhe com a gente](https://instruct.com.br/trabalhe-com-a-gente/).
+```bash
+k6 run -e API_BASE='https://holiday.3utilities.com' tests-open.js
+```
